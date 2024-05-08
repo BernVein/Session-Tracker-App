@@ -1,0 +1,131 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFrameworks>net8.0-ios;net8.0-maccatalyst;net8.0-android</TargetFrameworks>
+		<TargetFrameworks Condition="$([MSBuild]::IsOSPlatform('windows'))">$(TargetFrameworks);net8.0-windows10.0.19041.0</TargetFrameworks>
+		<!-- Uncomment to also build the tizen app. You will need to install tizen by following this: https://github.com/Samsung/Tizen.NET -->
+		<!-- <TargetFrameworks>$(TargetFrameworks);net8.0-tizen</TargetFrameworks> -->
+
+		<!-- Note for MacCatalyst:
+		The default runtime is maccatalyst-x64, except in Release config, in which case the default is maccatalyst-x64;maccatalyst-arm64.
+		When specifying both architectures, use the plural <RuntimeIdentifiers> instead of the singular <RuntimeIdentifier>.
+		The Mac App Store will NOT accept apps with ONLY maccatalyst-arm64 indicated;
+		either BOTH runtimes must be indicated or ONLY macatalyst-x64. -->
+		<!-- For example: <RuntimeIdentifiers>maccatalyst-x64;maccatalyst-arm64</RuntimeIdentifiers> -->
+
+		<OutputType>Exe</OutputType>
+		<RootNamespace>AlarmProject</RootNamespace>
+		<UseMaui>true</UseMaui>
+		<SingleProject>true</SingleProject>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+
+		<!-- Display name -->
+		<ApplicationTitle>Smyt</ApplicationTitle>
+
+		<!-- App Identifier -->
+		<ApplicationId>com.visayasstateuniversity.bernveinbalermo</ApplicationId>
+
+		<!-- Versions -->
+		<ApplicationDisplayVersion>1.4</ApplicationDisplayVersion>
+		<ApplicationVersion>4</ApplicationVersion>
+
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'ios'">11.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'maccatalyst'">13.1</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'android'">21.0</SupportedOSPlatformVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
+		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
+		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net8.0-android|AnyCPU'">
+	  <AndroidUseAapt2>True</AndroidUseAapt2>
+	  <AndroidCreatePackagePerAbi>False</AndroidCreatePackagePerAbi>
+	  <AndroidPackageFormat>apk</AndroidPackageFormat>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<!-- App Icon -->
+		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
+
+		<!-- Splash Screen -->
+		<MauiSplashScreen Include="Resources\Images\appsplash.svg" Color="#FFFFFF" BaseSize="128,128" />
+
+		<!-- Images -->
+		<MauiImage Include="Resources\Images\*" />
+		<MauiImage Update="Resources\Images\dotnet_bot.png" Resize="True" BaseSize="300,185" />
+
+		<!-- Custom Fonts -->
+		<MauiFont Include="Resources\Fonts\*" />
+
+		<!-- Raw Assets (also remove the "Resources\Raw" prefix) -->
+		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <None Remove="Resources\Fonts\GuifxV2Transports-YMJo.ttf" />
+	  <None Remove="Resources\Fonts\LexendExa-Black.ttf" />
+	  <None Remove="Resources\Fonts\LexendExa-Bold.ttf" />
+	  <None Remove="Resources\Fonts\LexendExa-ExtraBold.ttf" />
+	  <None Remove="Resources\Fonts\LexendExa-ExtraLight.ttf" />
+	  <None Remove="Resources\Fonts\LexendExa-Light.ttf" />
+	  <None Remove="Resources\Fonts\LexendExa-Medium.ttf" />
+	  <None Remove="Resources\Fonts\LexendExa-Regular.ttf" />
+	  <None Remove="Resources\Fonts\LexendExa-SemiBold.ttf" />
+	  <None Remove="Resources\Fonts\LexendExa-Thin.ttf" />
+	  <None Remove="Resources\Fonts\LexendZetta-Regular.ttf" />
+	  <None Remove="Resources\Fonts\Product Sans Bold Italic.ttf" />
+	  <None Remove="Resources\Fonts\Product Sans Bold.ttf" />
+	  <None Remove="Resources\Fonts\Product Sans Italic.ttf" />
+	  <None Remove="Resources\Fonts\Product Sans Regular.ttf" />
+	  <None Remove="Resources\Images\alarmicon.png" />
+	  <None Remove="Resources\Images\appsplash.svg" />
+	  <None Remove="Resources\Images\poker_chip.svg" />
+	  <None Remove="Resources\Images\sisy.jpg" />
+	  <None Remove="Resources\Images\svgvieweroutput.svg" />
+	  <None Remove="Resources\Raw\Appbuild.txt" />
+	  <None Remove="Resources\Raw\ringtone8.mp3" />
+	  <None Remove="Resources\Raw\ringtone9.mp3" />
+	  <None Remove="Resources\Splash\appsplash.svg" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<PackageReference Include="CommunityToolkit.Maui" Version="9.0.0" />
+		<PackageReference Include="Microsoft.Maui.Controls" Version="8.0.21" />
+		<PackageReference Include="Microsoft.Maui.Controls.Compatibility" Version="8.0.21" />
+		<PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="8.0.0" />
+		<PackageReference Include="Microsoft.Maui.Graphics.Skia" Version="8.0.21" />
+		<PackageReference Include="Plugin.LocalNotification" Version="11.1.2" />
+		<PackageReference Include="SkiaSharp.Views.Maui.Controls" Version="2.88.8" />
+		<PackageReference Include="System.Drawing.Common" Version="8.0.4" />
+		<PackageReference Include="UraniumUI.Material" Version="2.8.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Compile Update="Views\AddSessionPage.xaml.cs">
+	    <DependentUpon>AddSessionPage.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\Controls\AddSession.xaml.cs">
+	    <DependentUpon>AddSession.xaml</DependentUpon>
+	  </Compile>
+	  <Compile Update="Views\EditSessionPage.xaml.cs">
+	    <DependentUpon>EditSessionPage.xaml</DependentUpon>
+	  </Compile>
+	</ItemGroup>
+
+	<ItemGroup>
+	  <MauiXaml Update="Views\Controls\AddSession.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\EditSessionPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\FrontPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	  <MauiXaml Update="Views\PDFReaderPage.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
+	</ItemGroup>
+
+</Project>

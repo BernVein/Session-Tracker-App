@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SessionTrackerProject.Views.AddSessionPage"
+             xmlns:controls="clr-namespace:SessionTrackerProject.Views.Controls"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundColor="#1A1A1A"
+             Title="AddAlarmPage">
+    <controls:AddSession x:Name="ctrl_AddSession"
+                       OnAttach="ctrl_AddSession_OnAttach"
+                       OnCancel="btn_Back_Clicked"
+                       OnSave="ctrl_AddSession_OnSave"
+                       InfoSetTime="ctrl_AddSession_InfoSetTime"
+                       InfoAttachFile="ctrl_AddSession_InfoAttachFile"
+                       InfoReadTime="ctrl_AddSession_InfoReadTime"
+                       InfoLabel="ctrl_AddSession_InfoLabel"
+                       InfoRepeat="ctrl_AddSession_InfoRepeat"
+                          ></controls:AddSession>
+</ContentPage>

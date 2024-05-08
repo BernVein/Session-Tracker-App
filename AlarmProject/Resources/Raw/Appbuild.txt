@@ -1,0 +1,2 @@
+keytool -genkeypair -v -keystore AlarmProject.keystore -alias mauiAppKey4 -keyalg RSA -keysize 2048 -validity 3000
+dotnet publish -f net8.0-android -c Release -p:AndroidKeyStore=true -p:AndroidSigningKeyStore=AlarmProject.csproj.keystore -p:AndroidSigningKeyAlias=mauiAppKey4 -p:AndroidSigningKeyPass=mypassword -p:AndroidSigningStorePass=mypassword

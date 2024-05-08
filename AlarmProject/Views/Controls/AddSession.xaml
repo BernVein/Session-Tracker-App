@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentView xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:material="http://schemas.enisn-projects.io/dotnet/maui/uraniumui/material"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             BackgroundColor="White"
+             x:Class="SessionTrackerProject.Views.Controls.AddSession">
+
+    <Grid RowDefinitions="0.12*, *"
+          Padding="20">
+
+        <Rectangle Grid.Row="0"
+                   WidthRequest="400"
+                   HeightRequest="100"
+                   Margin="0,-20,0,0"
+                   VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   BackgroundColor="#1A1A1A"
+                   ></Rectangle>
+
+        <Button x:Name="btn_Back" 
+                Text="&lt;"
+                HorizontalOptions="Start"
+                WidthRequest="70"
+                HeightRequest="70"
+                TextColor="White"
+                FontFamily="GoogleFont-Regular"
+                FontSize="50"
+                Clicked="btn_Back_Clicked"
+                BackgroundColor="Transparent"
+                Padding="-40,-20,0,0"
+                ></Button>
+
+        <Label Text="ADD SESSION"
+               x:Name="lbl_SetTask"
+               FontFamily="GoogleFont-Regular"
+               HorizontalOptions="End"
+               VerticalOptions="Center"
+               Grid.Row="0"
+               TextColor="White"
+               FontSize="43"
+        ></Label>
+
+        <Grid RowDefinitions="*,*,*,*,*,*"
+              Grid.Row="1"
+              ColumnDefinitions="*,*">
+            <HorizontalStackLayout Grid.Row="0"
+                                   Grid.Column="0">
+                <Button CornerRadius="50"
+                        x:Name="btn_InfoSetTime"
+                        Clicked="btn_InfoSetTime_Clicked"
+                        WidthRequest="25"
+                        Text="?"
+                        TextColor="White"
+                        FontFamily="GoogleFont-Bold"
+                        Padding="0,0,0,0"
+                        BackgroundColor="#1A1A1A"
+                        HeightRequest="25"></Button>
+                <Label Text="SET TIME"
+                   VerticalOptions="Center"
+                   TextColor="#1A1A1A"
+                   FontFamily="GoogleFont-Regular"
+                   FontSize="30"></Label>
+            </HorizontalStackLayout>
+
+
+            <Frame x:Name="lbl_tapFrameTime"
+                   Grid.Column="1"
+                   Grid.Row="0"
+                   HeightRequest="40"
+                   WidthRequest="70"
+                   CornerRadius="10"
+            ></Frame>
+
+            <Label x:Name="lbl_tapTextTime"
+                   Text="TAP"
+                   Grid.Row="0"
+                   Grid.Column="1"
+                   TextColor="White"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontFamily="GoogleFont-Regular"
+                   FontSize="20">
+            </Label>
+
+            <material:TimePickerField x:Name="ClockField" 
+                                      Grid.Row="0"
+                                      Grid.Column="1"
+                                      TextColor="#1A1A1A"
+                                      FontFamily="GoogleFont-Regular"
+                                      FontSize="30"
+                                      AllowClear="False"
+                                      VerticalOptions="Center"
+                                      BorderColor="Transparent"
+                                      HorizontalOptions="Center"
+                                      Opacity="1"
+                      />
+
+            <HorizontalStackLayout Grid.Row="1"
+                                   Grid.Column="0">
+                <Button CornerRadius="50"
+                        x:Name="btn_InfoAttachFile"
+                        Clicked="btn_InfoAttachFile_Clicked"
+                        WidthRequest="25"
+                        Text="?"
+                        TextColor="White"
+                        FontFamily="GoogleFont-Bold"
+                        Padding="0,0,0,0"
+                        BackgroundColor="#1A1A1A"
+                        HeightRequest="25"></Button>
+
+                <Label Text="FILE"
+                   VerticalOptions="Center"
+                   TextColor="#1A1A1A"
+                   FontFamily="GoogleFont-Regular"
+                   FontSize="30"></Label>
+            </HorizontalStackLayout>
+            
+            <Button x:Name="lbl_tapFrameFile"
+                    Grid.Column="1"
+                    BackgroundColor="#1A1A1A"
+                    Grid.Row="1"
+                    Clicked="lbl_tapFrameFile_Clicked"
+                    HeightRequest="40"
+                    WidthRequest="70"
+                    CornerRadius="10"
+            ></Button>
+
+            <Label x:Name="lbl_tapTextFile"
+                   Text="TAP"
+                   Grid.Row="1"
+                   Grid.Column="1"
+                   TextColor= "#1A1A1A"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontFamily="GoogleFont-Regular"
+                   FontSize="20">
+            </Label>
+            
+            <HorizontalStackLayout Grid.Row="2"
+                                   Grid.Column="0">
+                <Button CornerRadius="50"
+                        x:Name="btn_InfoReadTime"
+                        Clicked="btn_InfoReadTime_Clicked"
+                        WidthRequest="25"
+                        Text="?"
+                        TextColor="White"
+                        FontFamily="GoogleFont-Bold"
+                        Padding="0,0,0,0"
+                        BackgroundColor="#1A1A1A"
+                        HeightRequest="25"></Button>
+                <Label Text="READ TIME"
+                   VerticalOptions="Center"
+                   TextColor="#1A1A1A"
+                   FontFamily="GoogleFont-Regular"
+                   FontSize="30"></Label>
+            </HorizontalStackLayout>
+
+
+            <Entry x:Name="lblEntry_ReadTime"
+                   Grid.Column="1"
+                   Grid.Row="2"
+                   HeightRequest="50"
+                   WidthRequest="110"
+                   FontFamily="GoogleFont-Regular"
+                   FontSize="30"
+                   Keyboard="Numeric"
+                   Placeholder="in mins."
+                   MaxLength="3"
+                   TextColor="#1A1A1A" 
+                   PlaceholderColor="#1A1A1A"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                    />
+            <HorizontalStackLayout Grid.Row="3"
+                                   Grid.Column="0">
+                <Button CornerRadius="50"
+                        x:Name="btn_InfoLabel"
+                        Clicked="btn_InfoLabel_Clicked"
+                        WidthRequest="25"
+                        Text="?"
+                        TextColor="White"
+                        FontFamily="GoogleFont-Bold"
+                        Padding="0,0,0,0"
+                        BackgroundColor="#1A1A1A"
+                        HeightRequest="25"></Button>
+                <Label Text="LABEL"
+                   VerticalOptions="Center"
+                   TextColor="#1A1A1A"
+                   FontFamily="GoogleFont-Regular"
+                   FontSize="30"></Label>
+            </HorizontalStackLayout>
+
+            <Entry x:Name="lblEntry"
+                   Grid.Column="1"
+                   Grid.Row="3"
+                   HeightRequest="50"
+                   WidthRequest="110"
+                   FontFamily="GoogleFont-Regular"
+                   FontSize="13"
+                   Placeholder="Max: 20 characters"
+                   MaxLength="20"
+                   TextColor="#1A1A1A" 
+                   PlaceholderColor="#1A1A1A"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                    />
+            <HorizontalStackLayout Grid.Row="4"
+                                   Grid.Column="0">
+                <Button CornerRadius="50"
+                        x:Name="btn_InfoRepeat"
+                        Clicked="btn_InfoRepeat_Clicked"
+                        WidthRequest="25"
+                        Text="?"
+                        TextColor="White"
+                        FontFamily="GoogleFont-Bold"
+                        Padding="0,0,0,0"
+                        BackgroundColor="#1A1A1A"
+                        HeightRequest="25"></Button>
+                <Label Text="REPEAT"
+                   VerticalOptions="Center"
+                   TextColor="#1A1A1A"
+                   FontFamily="GoogleFont-Regular"
+                   FontSize="30"></Label>
+            </HorizontalStackLayout>
+
+
+            <Frame x:Name="lbl_tapFrameRepeat"
+                   Grid.Column="1"
+                   Grid.Row="4"
+                   HeightRequest="40"
+                   WidthRequest="70"
+                   CornerRadius="10"
+            ></Frame>
+
+            <Label x:Name="lbl_tapTextRepeat"
+                   Text="TAP"
+                   Grid.Row="4"
+                   Grid.Column="1"
+                   TextColor="White"
+                   VerticalOptions="Center"
+                   HorizontalOptions="Center"
+                   FontFamily="GoogleFont-Regular"
+                   FontSize="20">
+            </Label>
+
+            <material:MultiplePickerField Opacity="1"
+                                          HeightRequest="50"
+                                          TitleColor="Black"
+                                          BorderColor="Transparent"
+                                          Grid.Column="1"
+                                          Grid.Row="4"
+                                          x:Name="DayOfWeekPickerField"
+                                          Title="REPEAT SESSION"
+                                          >
+                <material:MultiplePickerField.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Sunday</x:String>
+                        <x:String>Monday</x:String>
+                        <x:String>Tuesday</x:String>
+                        <x:String>Wednesday</x:String>
+                        <x:String>Thursday</x:String>
+                        <x:String>Friday</x:String>
+                        <x:String>Saturday</x:String>
+                    </x:Array>
+                </material:MultiplePickerField.ItemsSource>
+            </material:MultiplePickerField>
+            
+
+            <Button Grid.Row="5"
+                    Text="DONE"
+                    x:Name="btn_Done"
+                    Clicked="btn_Done_Clicked"
+                    FontFamily="GoogleFont-Regular"
+                    Grid.ColumnSpan="2"
+                    BackgroundColor="#1A1A1A"
+                    TextColor="White"
+                    FontSize="20"
+                    WidthRequest="90"
+                    HeightRequest="50"
+                    >
+            </Button>
+        </Grid>
+    </Grid>
+
+</ContentView>
