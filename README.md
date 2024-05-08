@@ -12,6 +12,7 @@
    <br>[Version 1.1](https://www.mediafire.com/file/lzrdzm0b8w92mov/SMYTV1_1.apk/file)
    <br>[Version 1.2](https://www.mediafire.com/file/gh0lkk4bfp0dk7h/SMYTV1_2.apk/file)
    <br>[Version 1.3](https://www.mediafire.com/file/bpb8iyoypgnodmh/Smyt1_3.apk/file)
+   <br>[Version 1.4](https://www.mediafire.com/file/0rkk45hksrk99n7/Smyt1_4.apk/file)
 3. Press download, then install the apk to your android device.
 
 ### Versions
@@ -28,6 +29,11 @@
   <br>1. Fixed a bug where if you dismiss/open a session that doesn't exist, it crashes the application.
   <br>2. Minor bugfix wherein it doesn't record your selected days when updating the session.
   <br>3. Additional features added.
+* **Version 1.4**:
+  <br>1. Fixed a bug where if you resumed / dismissed a study session where the session is already deleted, it doesn't do anything.
+  <br>2. If the time has passed already, it automatically sets it for tomorrow.
+  <br>3. Fixed a bug where if there is more than 1 session, the pop-up display always show even if unprompted.
+  <br>4. Fixed where it can't be installed directly because it uses old version of android framework.
 
 
 ### Notes
