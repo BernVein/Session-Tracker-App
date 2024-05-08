@@ -97,7 +97,7 @@ namespace SessionTrackerProject.Models
         /// </summary>
         public static void ShowNotif()
         {
-            if(CountSessionsForToday(SessionRepository.Sessions) != 0)
+            if(CountSessionsForToday(SessionRepository.Sessions) > 0)
             {
                 var request = new NotificationRequest
                 {

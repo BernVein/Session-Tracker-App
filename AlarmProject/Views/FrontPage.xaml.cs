@@ -66,6 +66,7 @@ public partial class FrontPage : ContentPage
         var menuItem = sender as MenuItem;
         var session = menuItem.CommandParameter as Session;
         SessionRepository.DeleteSession(session.SessionID);
+        counter = 0;
         LoadSession();
         UpdateEmptyWarning();
         SessionScheduler.SetSchedule();
