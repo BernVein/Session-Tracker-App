@@ -1,4 +1,4 @@
-# SMYT Version 1.3
+# SMYT Version 1.4
 **SMYT** is an android mobile application designed to help users efficiently manage their and study sessions. It provides features to set, track, and organize, as well as manage study sessions effectively.
 
 ## Features
