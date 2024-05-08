@@ -1,4 +1,4 @@
-# SMYT Version 1.2
+# SMYT Version 1.3
 **SMYT** is an android mobile application designed to help users efficiently manage their and study sessions. It provides features to set, track, and organize, as well as manage study sessions effectively.
 
 ## Features
@@ -11,6 +11,7 @@
    <br>[Version 1.0](https://www.mediafire.com/file/ejvdy7j04v6pvxz/SMYT_V1.apk/file)
    <br>[Version 1.1](https://www.mediafire.com/file/lzrdzm0b8w92mov/SMYTV1_1.apk/file)
    <br>[Version 1.2](https://www.mediafire.com/file/gh0lkk4bfp0dk7h/SMYTV1_2.apk/file)
+   <br>[Version 1.3](https://www.mediafire.com/file/bpb8iyoypgnodmh/Smyt1_3.apk/file)
 3. Press download, then install the apk to your android device.
 
 ### Versions
@@ -23,6 +24,10 @@
   <br>3. Added an info button when adding/editing a task.
   <br>4. Fixed a bug where if you start with a decimal and if it starts with 0 in read time, the program crashes.
   <br>5. Label can accomodate until 20 characters, and read time will only accept 3 digits, because realistically, it is not recommended to study for more than 1 day straight.
+* **Version 1.3**:
+  <br>1. Fixed a bug where if you dismiss/open a session that doesn't exist, it crashes the application.
+  <br>2. Minor bugfix wherein it doesn't record your selected days when updating the session.
+  <br>3. Additional features added.
 
 
 ### Notes
